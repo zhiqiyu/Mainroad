@@ -1,6 +1,7 @@
 {{ define "main" }}
 <main class="main" role="main">
 	<article class="post">
+		{{- if not .Params.hideTitle }}
 		<header class="post__header">
 			<h1 class="post__title">{{ .Title }}</h1>
 			{{- with .Params.lead }}
@@ -9,6 +10,7 @@
 			{{ with partial "post_meta.html" . -}}
 			<div class="post__meta meta">{{ . }}</div>
 			{{- end }}
+		{{- end }}
 		</header>
 		{{- if .Params.thumbnail }}
 		<figure class="post__thumbnail">
